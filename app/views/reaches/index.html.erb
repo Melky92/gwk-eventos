@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Reaches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reaches.each do |reach| %>
+      <tr>
+        <td><%= reach.name %></td>
+        <td><%= link_to 'Show', reach %></td>
+        <td><%= link_to 'Edit', edit_reach_path(reach) %></td>
+        <td><%= link_to 'Destroy', reach, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reach', new_reach_path %>

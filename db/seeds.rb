@@ -5,3 +5,36 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+rulings = Ruling.create([
+  { name: "FT10"} ,
+  { name: "Torneo"} ,
+  { name: "BO3"} ,
+  { name: "BO5"} ,
+]);
+
+teams = Team.create([
+  { name: "GWK" } ,
+  { name: "HWG" } ,
+]);
+
+games = Game.create([
+  { name: "Ultimate" } ,
+  { name: "Melee" } ,
+  { name: "Mario Kart" } ,
+  { name: "Nick brawl" } ,
+  { name: "Smash 64" } ,
+  { name: "Brawl" } ,
+  { name: "Smash en 4" } ,
+])
+
+event_statuses = EventStatus.create([
+  { name: "Pendiente" } ,
+  { name: "Concluido" } ,
+  { name: "Cancelado" } ,
+])
+
+reach = Reach.create([
+  { name: "Público" } ,
+  { name: "GWK only" } ,
+])
