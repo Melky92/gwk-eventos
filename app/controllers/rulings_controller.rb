@@ -64,6 +64,6 @@ class RulingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ruling_params
-      params.require(:ruling).permit(:name)
+      params.require(:ruling).permit(:name, :players)
     end
 end

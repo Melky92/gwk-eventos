@@ -11,3 +11,5 @@ rails generate scaffold PlayerEvent player:references event:references prize:ref
 rails generate migration add_link_to_event link:string
 rails generate migration add_ruling_to_event ruling:references
 rails generate migration add_game_to_event game:references
+rails generate migration add_place_to_player_event place:integer
+rails generate migration add_players_to_ruling players:integer

@@ -1,0 +1,10 @@
+
+body>:not(nav) {
+  margin: 10px;
+}
+.simple_form>* {
+  margin: 10px;
+}
+
+// Import Bootstrap v5  
+@import "~bootstrap/scss/bootstrap";  

@@ -30,4 +30,7 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  simple_form:
+    labels:
+      player:
+        name: 'Nombre'

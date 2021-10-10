@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_09_144000) do
+ActiveRecord::Schema.define(version: 2021_10_09_221130) do
 
   create_table "event_statuses", force: :cascade do |t|
     t.string "name"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2021_10_09_144000) do
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.time "date"
+    t.date "date"
     t.integer "reach_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2021_10_09_144000) do
     t.integer "prize_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "place"
     t.index ["event_id"], name: "index_player_events_on_event_id"
     t.index ["player_id"], name: "index_player_events_on_player_id"
     t.index ["prize_id"], name: "index_player_events_on_prize_id"
@@ -80,6 +81,7 @@ ActiveRecord::Schema.define(version: 2021_10_09_144000) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "players"
   end
 
   create_table "teams", force: :cascade do |t|

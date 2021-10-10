@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "/", to: "events#index"
   resources :player_events
   resources :event_statuses
   resources :prizes

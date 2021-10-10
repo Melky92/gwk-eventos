@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Players</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
     <% @rulings.each do |ruling| %>
       <tr>
         <td><%= ruling.name %></td>
+        <td><%= ruling.players %></td>
         <td><%= link_to 'Show', ruling %></td>
         <td><%= link_to 'Edit', edit_ruling_path(ruling) %></td>
         <td><%= link_to 'Destroy', ruling, method: :delete, data: { confirm: 'Are you sure?' } %></td>
