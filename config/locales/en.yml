@@ -34,3 +34,12 @@ en:
     labels:
       player:
         name: 'Nombre'
+        team: 'Equipo'
+      event:
+        name: 'Nombre'
+        date: 'Fecha'
+        description: 'Descripción'
+        reach: 'Nivel de privacidad'
+        game: 'Juego'
+        ruling: 'Modalidad'
+        event_status: 'Estado'

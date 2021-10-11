@@ -25,8 +25,8 @@ class PlayersController < ApplicationController
 
     respond_to do |format|
       if @player.save
-        format.html { redirect_to @player, notice: "Player was successfully created." }
-        format.json { render :show, status: :created, location: @player }
+        format.html { redirect_to players_path }
+        format.json { render :index, status: :created, location: @player }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @player.errors, status: :unprocessable_entity }
@@ -38,8 +38,8 @@ class PlayersController < ApplicationController
   def update
     respond_to do |format|
       if @player.update(player_params)
-        format.html { redirect_to @player, notice: "Player was successfully updated." }
-        format.json { render :show, status: :ok, location: @player }
+        format.html { redirect_to players_path }
+        format.json { render :index, status: :ok, location: @player }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @player.errors, status: :unprocessable_entity }

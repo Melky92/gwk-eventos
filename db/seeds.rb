@@ -8,10 +8,12 @@
 
 rulings = Ruling.create([
   { name: "FT10"} ,
-  { name: "Torneo"} ,
   { name: "BO3"} ,
   { name: "BO5"} ,
-]);
+  { name: "Torneo Doble Eliminiación"} ,
+  { name: "Torneo Round Robin"} ,
+  { name: "Torneo Eliminación Directa"} ,
+  ]);
 
 teams = Team.create([
   { name: "GWK" } ,
@@ -26,6 +28,7 @@ games = Game.create([
   { name: "Smash 64" } ,
   { name: "Brawl" } ,
   { name: "Smash en 4" } ,
+  { name: "Otro" } ,
 ])
 
 event_statuses = EventStatus.create([
@@ -36,5 +39,5 @@ event_statuses = EventStatus.create([
 
 reach = Reach.create([
   { name: "Público" } ,
-  { name: "GWK only" } ,
+  { name: "Solo GWK" } ,
 ])

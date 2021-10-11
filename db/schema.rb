@@ -25,11 +25,11 @@ ActiveRecord::Schema.define(version: 2021_10_09_221130) do
     t.integer "reach_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "event_statuses_id", null: false
+    t.integer "event_status_id", null: false
     t.string "link"
     t.integer "ruling_id", null: false
     t.integer "game_id", null: false
-    t.index ["event_statuses_id"], name: "index_events_on_event_statuses_id"
+    t.index ["event_status_id"], name: "index_events_on_event_status_id"
     t.index ["game_id"], name: "index_events_on_game_id"
     t.index ["reach_id"], name: "index_events_on_reach_id"
     t.index ["ruling_id"], name: "index_events_on_ruling_id"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2021_10_09_221130) do
   create_table "player_events", force: :cascade do |t|
     t.integer "player_id", null: false
     t.integer "event_id", null: false
-    t.integer "prize_id", null: false
+    t.integer "prize_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "place"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2021_10_09_221130) do
   create_table "players", force: :cascade do |t|
     t.string "name"
     t.string "nick"
-    t.integer "team_id", null: false
+    t.integer "team_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["team_id"], name: "index_players_on_team_id"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2021_10_09_221130) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "events", "event_statuses", column: "event_statuses_id"
+  add_foreign_key "events", "event_statuses"
   add_foreign_key "events", "games"
   add_foreign_key "events", "reaches"
   add_foreign_key "events", "rulings"

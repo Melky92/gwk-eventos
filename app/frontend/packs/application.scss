@@ -1,4 +1,6 @@
 
+// Import Bootstrap v5  
+@import "~bootstrap/scss/bootstrap";  
 body>:not(nav) {
   margin: 10px;
 }
@@ -6,5 +8,27 @@ body>:not(nav) {
   margin: 10px;
 }
 
-// Import Bootstrap v5  
-@import "~bootstrap/scss/bootstrap";  
+body>a {
+  @extend .btn, .btn-dark;
+}
+
+select {
+  @extend .form-select;
+}
+
+.white-icon {
+  filter: invert(100%) sepia(93%) saturate(29%) hue-rotate(118deg) brightness(107%) contrast(106%);
+}
+
+.hiddenRow {
+  padding: 0 !important;
+}
+.table-container>table{
+  @extend .table, .table-striped;
+  >thead{
+    @extend .table-dark;
+  }
+  >tbody{
+    @extend .table-light;
+  }
+}

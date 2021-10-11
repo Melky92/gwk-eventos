@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   get "/", to: "events#index"
+  get "/events/pending", to: "events#pending_events"
+  get "/events/finished", to: "events#finished_events"
+  get "/events/player/:player_id", to: "events#events_of_player", as: "events_of_player"
+  get "/events/:id/players/add", to: "events#add_players", as: "add_players"
+  post "/events/:id/players/add", to: "events#add_player", as: "add_player"
+  delete "/events/:id/players/remove/:player_id", to: "events#remove_player", as: "remove_player"
   resources :player_events
   resources :event_statuses
   resources :prizes

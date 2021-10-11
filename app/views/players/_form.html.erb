@@ -1,6 +1,13 @@
-<%= simple_form_for player do |f| %>
+<%= simple_form_for player,
+  wrapper: :inline_form,
+  defaults: { wrapper_html: { class: 'col-lg-2' } },
+  html: { class: "row g-2 align-items-center" },
+  wrapper_mappings: {
+    boolean: :inline_boolean
+  } do |f| %>
   <%= f.input :name %>
   <%= f.input :nick %>
   <%= f.association :team %>
-  <%= f.button :submit %>
+  <div></div>
+  <%= f.button :submit, "Guardar", class: "col-lg-4" %>
 <% end %>

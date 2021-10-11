@@ -1,0 +1,21 @@
+<% if Player.where.not(id: @event.player_ids ).count > 0 then %>
+  <%= simple_form_for @event, url: add_player_path, method: "post" do |f| %>
+    <%= f.input :new_player, collection: Player.where.not(id: @event.player_ids ), label: false, label_method: :display_name, value_method: :id, include_blank: false, :wrapper_html => { :class => 'col-lg-2' }  %>
+    <%= f.button :submit, "Agregar jugador", class: "col-lg-3" %>
+  <% end %>
+<% end %>
+<h5>
+    Jugadores de evento <%= @event.name %>
+</h5>
+<div class="table-container col-lg-6">
+  <table id="event_players" class="table table-bordered table-striped">
+    <tbody>
+      <% @event.players.each do |player| %>
+        <tr>
+          <td><%= player.display_name %></td>
+          <td><%= link_to 'Eliminar', remove_player_path(@event.id,player.id), method:"delete"%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
