@@ -5,15 +5,17 @@
 <%= link_to 'Crear evento', new_event_path, class: "btn btn-dark" %>
 
 <div class="table-container">
-  <table class="table-hover">
+  <table class="table-hover table-sm">
     <thead>
       <tr>
         <th></th>
         <th>Nombre</th>
         <th>Jugadores</th>
         <th>Tipo</th>
-        <th>Juego</th>
         <th>Estado</th>
+        <% unless browser.device.mobile? then %>
+          <th colspan="3"></th>
+        <% end %>
       </tr>
     </thead>
 
@@ -24,14 +26,19 @@
             aria-controls="accordion<%=index%>" 
             data-bs-target="#accordion<%=index%>" 
             data-bs-toggle="collapse" 
-            class="accordion-toggle btn btn-dark btn-xs">
+            class="accordion-toggle btn btn-dark btn-sm">
               <%= octicon "eye", :height => 16, :class => "white-icon" %>
           </button></td>
           <td><%= event.name %></td>
           <td><%= event.player_summary %></td>
-          <td><%= event.ruling.name %></td>
-          <td><%= event.game.name %></td>
+          <td><%= event.ruling.name + " - " + event.game.name %></td>
           <td><%= event.event_status.name %></td>
+          <% unless browser.device.mobile? then %>
+            <td/><%= link_to 'Administrar Jugadores', add_players_path(event.id), class: "btn btn-sm btn-dark" %> </td>
+            <td/><%= link_to 'Editar', edit_event_path(event), class: "btn btn-sm btn-dark" %> </td>
+            <td/><%= link_to 'Eliminar', event, method: :delete, data: { confirm: '¿Seguro weon? Esto es irreversible.' }, class: "btn btn-sm btn-dark" %> </td>
+          <% end %>
+
         </tr>
 
         <tr>
@@ -46,11 +53,13 @@
                 <%= event.date %>
                 <br/>
                 <br/>
-                <%= link_to 'Administrar Jugadores', add_players_path(event.id), class: "btn btn-sm btn-dark" %>
-                <%= link_to 'Editar', edit_event_path(event), class: "btn btn-sm btn-dark" %>
-                <%= link_to 'Eliminar', event, method: :delete, data: { confirm: '¿Seguro weon? Esto es irreversible.' }, class: "btn btn-sm btn-dark" %>
-      
 
+                <% if browser.device.mobile? then %>
+                  <%= link_to 'Administrar Jugadores', add_players_path(event.id), class: "btn btn-sm btn-dark" %>
+                  <%= link_to 'Editar', edit_event_path(event), class: "btn btn-sm btn-dark" %>
+                  <%= link_to 'Eliminar', event, method: :delete, data: { confirm: '¿Seguro weon? Esto es irreversible.' }, class: "btn btn-sm btn-dark" %>
+                <% end %>
+      
                 <% unless event.link.empty? then %>
                   <br/>
                   <br/>

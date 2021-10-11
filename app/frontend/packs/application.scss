@@ -2,14 +2,15 @@
 // Import Bootstrap v5  
 @import "~bootstrap/scss/bootstrap";  
 body>:not(nav) {
-  margin: 10px;
+  @extend .my-2;
 }
-.simple_form>* {
-  margin: 10px;
+
+body>:not(div,nav) {
+  @extend .m-3;
 }
 
 body>a {
-  @extend .btn, .btn-dark;
+  @extend .btn, .btn-dark, .mx-3;
 }
 
 select {
@@ -31,4 +32,8 @@ select {
   >tbody{
     @extend .table-light;
   }
+}
+
+.extra_row{
+  border-bottom: 1pt solid black;
 }
