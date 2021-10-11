@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  default_scope { order(updated_at: :desc) }
   belongs_to :reach
   belongs_to :game
   belongs_to :ruling
