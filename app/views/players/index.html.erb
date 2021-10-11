@@ -21,9 +21,9 @@
           <td><%= player.name %></td>
           <td><%= player.nick %></td>
           <td><%= player.team.name %></td>
-          <td><%= link_to 'Ver eventos', events_of_player_url(player) %></td>
-          <td><%= link_to 'Editar', edit_player_path(player) %></td>
-          <td><%= link_to 'Eliminar', player, method: :delete, data: { confirm: '¿Seguro weon? Esto es irreversible.' } %></td>
+          <td><%= link_to 'Ver eventos', events_of_player_url(player), class: "btn btn-sm btn-dark" %></td>
+          <td><%= link_to 'Editar', edit_player_path(player), class: "btn btn-sm btn-dark" %></td>
+          <td><%= link_to 'Eliminar', player, method: :delete, data: { confirm: '¿Seguro weon? Esto es irreversible.' }, class: "btn btn-sm btn-dark" %></td>
         </tr>
       <% end %>
     </tbody>

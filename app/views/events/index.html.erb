@@ -10,12 +10,10 @@
       <tr>
         <th></th>
         <th>Nombre</th>
-        <th>Fecha</th>
         <th>Jugadores</th>
         <th>Tipo</th>
         <th>Juego</th>
         <th>Estado</th>
-        <th colspan="4"></th>
       </tr>
     </thead>
 
@@ -30,20 +28,29 @@
               <%= octicon "eye", :height => 16, :class => "white-icon" %>
           </button></td>
           <td><%= event.name %></td>
-          <td><%= event.date %></td>
           <td><%= event.player_summary %></td>
           <td><%= event.ruling.name %></td>
           <td><%= event.game.name %></td>
           <td><%= event.event_status.name %></td>
-          <td><%= link_to 'Administrar Jugadores', add_players_path(event.id) %></td>
-          <td><%= link_to 'Editar', edit_event_path(event) %></td>
-          <td><%= link_to 'Eliminar', event, method: :delete, data: { confirm: '¿Seguro weon? Esto es irreversible.' } %></td>
         </tr>
 
         <tr>
           <td colspan="10" class="hiddenRow">
               <div id="accordion<%=index%>" class="accordion-body collapse">
-                <%= event.description %>
+                <% unless event.description.empty? then %>
+                  <%= event.description %>
+                  <br/>
+                  <br/>
+                <% end %>
+                Fecha: 
+                <%= event.date %>
+                <br/>
+                <br/>
+                <%= link_to 'Administrar Jugadores', add_players_path(event.id), class: "btn btn-sm btn-dark" %>
+                <%= link_to 'Editar', edit_event_path(event), class: "btn btn-sm btn-dark" %>
+                <%= link_to 'Eliminar', event, method: :delete, data: { confirm: '¿Seguro weon? Esto es irreversible.' }, class: "btn btn-sm btn-dark" %>
+      
+
                 <% unless event.link.empty? then %>
                   <br/>
                   <br/>
