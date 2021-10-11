@@ -7,7 +7,7 @@
   } do |f| %>
   <%= f.input :name %>
   <%= f.input :nick %>
-  <%= f.association :team %>
+  <%= f.association :team, include_blank: false %>
   <div></div>
   <%= f.button :submit, "Guardar", class: "col-lg-4" %>
 <% end %>

@@ -30,13 +30,13 @@
               <%= octicon "eye", :height => 16, :class => "white-icon" %>
           </button></td>
           <td><%= event.name %></td>
-          <td><%= event.player_summary %></td>
+          <td><%= event.player_summary.html_safe %></td>
           <td><%= event.ruling.name + " - " + event.game.name %></td>
           <td><%= event.event_status.name %></td>
           <% unless browser.device.mobile? then %>
-            <td/><%= link_to 'Administrar Jugadores', add_players_path(event.id), class: "btn btn-sm btn-dark" %> </td>
-            <td/><%= link_to 'Editar', edit_event_path(event), class: "btn btn-sm btn-dark" %> </td>
-            <td/><%= link_to 'Eliminar', event, method: :delete, data: { confirm: '¿Seguro weon? Esto es irreversible.' }, class: "btn btn-sm btn-dark" %> </td>
+            <td/><%= link_to 'Administrar Jugadores', add_players_path(event.id) %> </td>
+            <td/><%= link_to 'Editar', edit_event_path(event) %> </td>
+            <td/><%= link_to 'Eliminar', event, method: :delete, data: { confirm: '¿Seguro weon? Esto es irreversible.' } %> </td>
           <% end %>
 
         </tr>
@@ -51,13 +51,13 @@
                 <% end %>
                 Fecha: 
                 <%= event.date %>
-                <br/>
-                <br/>
 
                 <% if browser.device.mobile? then %>
-                  <%= link_to 'Administrar Jugadores', add_players_path(event.id), class: "btn btn-sm btn-dark" %>
-                  <%= link_to 'Editar', edit_event_path(event), class: "btn btn-sm btn-dark" %>
-                  <%= link_to 'Eliminar', event, method: :delete, data: { confirm: '¿Seguro weon? Esto es irreversible.' }, class: "btn btn-sm btn-dark" %>
+                  <br/>
+                  <br/>
+                  <%= link_to 'Administrar Jugadores', add_players_path(event.id) %>
+                  <%= link_to 'Editar', edit_event_path(event) %>
+                  <%= link_to 'Eliminar', event, method: :delete, data: { confirm: '¿Seguro weon? Esto es irreversible.' } %>
                 <% end %>
       
                 <% unless event.link.empty? then %>

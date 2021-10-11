@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/events/player/:player_id", to: "events#events_of_player", as: "events_of_player"
   get "/events/:id/players/add", to: "events#add_players", as: "add_players"
   post "/events/:id/players/add", to: "events#add_player", as: "add_player"
+  post "/events/:id/winner/:player_id", to: "events#set_winner", as: "set_winner"
   delete "/events/:id/players/remove/:player_id", to: "events#remove_player", as: "remove_player"
   resources :player_events
   resources :event_statuses

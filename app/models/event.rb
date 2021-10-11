@@ -6,6 +6,8 @@ class Event < ApplicationRecord
   belongs_to :event_status
   has_many :player_events
   attr_accessor :new_player
+  validates :name, length: { minimum: 1, too_short: "Miea ya pe aunque sea 'torneo de la wea' ponele pe" }
+
   def player_ids
     player_events.collect { |pe| pe.player_id}
   end
@@ -15,7 +17,7 @@ class Event < ApplicationRecord
   end
 
   def player_names
-    player_events.collect{|pe| pe.player.display_name}
+    player_events.collect{|pe| pe.player_name}
   end
 
   def player_summary

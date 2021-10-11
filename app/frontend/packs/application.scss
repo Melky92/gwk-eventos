@@ -17,9 +17,28 @@ select {
   @extend .form-select;
 }
 
+#event_players>tbody>tr>td {
+  @extend .text-center, .align-middle;
+}
+
+table:not(#event_players)>tbody>tr>td {
+  @extend .align-middle;
+}
+
+td>a{
+  @extend .btn, .btn-dark, .btn-sm;
+}
+
+td>div>a{
+  @extend .btn, .btn-dark, .btn-sm;
+}
+
 .white-icon {
   filter: invert(100%) sepia(93%) saturate(29%) hue-rotate(118deg) brightness(107%) contrast(106%);
 }
+
+.yellow-icon {
+  filter: invert(85%) sepia(33%) saturate(3891%) hue-rotate(359deg) brightness(105%) contrast(101%);}
 
 .hiddenRow {
   padding: 0 !important;

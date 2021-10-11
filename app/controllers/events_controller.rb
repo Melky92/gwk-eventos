@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show edit update destroy add_players add_player remove_player]
+  before_action :set_event, only: %i[ show edit update destroy add_players add_player remove_player set_winner]
 
   # GET /events or /events.json
   def index
@@ -51,11 +51,21 @@ class EventsController < ApplicationController
 
   def remove_player
     player_event = @event.player_events.where(player_id: params[:player_id]).first
-    puts @event.player_events.inspect
-    puts player_event.inspect
     player_event && player_event.destroy
     redirect_to add_players_path(@event.id);
   end
+
+  def set_winner
+    winner_id = params[:player_id].to_i
+    @event.player_events.each do |pe|
+      pe.place = ( pe.player_id == winner_id ? 1 : nil )
+      pe.save
+    end
+    @event.event_status = ( winner_id > 0 ? EventStatus.second : EventStatus.first )
+    @event.save
+    redirect_to add_players_path(@event.id);
+  end
+
 
   # GET /events/1/edit
   def edit

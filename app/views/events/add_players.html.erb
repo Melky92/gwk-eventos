@@ -10,12 +10,16 @@
 <div class="table-container col-lg-6">
   <table id="event_players" class="table table-bordered table-striped">
     <tbody>
-      <% @event.players.each do |player| %>
+      <% @event.player_events.each do |player_event| %>
         <tr>
-          <td><%= player.display_name %></td>
-          <td><%= link_to 'Eliminar', remove_player_path(@event.id,player.id), method:"delete"%></td>
+          <td><%= player_event.player_name.html_safe %></td>
+          <td><%= link_to 'Ganador', set_winner_path(@event.id,player_event.player_id), method:"post"%></td>
+          <td><%= link_to 'Eliminar', remove_player_path(@event.id,player_event.player_id), method:"delete"%></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
+
+<%= link_to 'Remover Ganador', set_winner_path(@event.id,0), method:"post"%>
+<%= link_to 'Volver', events_path %>
